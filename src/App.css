@@ -1,125 +1,49 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #e8f5e9;
+  background-color: white;
+  color: #315c3b;
 }
 
-.container {
-  width: 600px;
-  margin: 50px auto;
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
   padding: 30px;
-  background-color: #f9fff9;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(70, 100, 70, 0.15);
+  box-sizing: border-box;
+  background-color: white;
 }
 
-h1 {
-  text-align: center;
-  color: #4f7355;
-  margin-bottom: 30px;
+h1,
+h2,
+h3 {
+  color: #315c3b;
 }
 
-h2 {
-  color: #587a5d;
-}
-
-.user-info {
-  background-color: #dff2e1;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.user-info h3 {
-  color: #4f7355;
-  margin-bottom: 5px;
-}
-
-.user-info p {
-  color: #6b806e;
-  margin-top: 0;
-}
-
-hr {
+button {
+  background-color: #b7e4be;
+  color: #315c3b;
   border: none;
-  border-top: 1px solid #cfe5d1;
-  margin: 25px 0;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 25px;
+button:hover {
+  background-color: #9fd6a7;
 }
 
 input {
-  padding: 11px;
-  border: 1px solid #b9d8bd;
-  border-radius: 7px;
-  width: 40%;
+  padding: 10px;
+  border: 1px solid #b7e4be;
+  border-radius: 8px;
+  outline: none;
   background-color: white;
 }
 
 input:focus {
-  outline: none;
-  border-color: #8fbd96;
-}
-
-form button {
-  background-color: #9bc6a1;
-  color: white;
-  font-weight: bold;
-}
-
-form button:hover {
-  background-color: #82b58a;
-}
-
-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-.expense-list {
-  margin-top: 15px;
-}
-
-.expense-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 13px;
-  margin-bottom: 10px;
-  background-color: #edf8ee;
-  border: 1px solid #d5ead7;
-  border-radius: 8px;
-}
-
-.expense-item span {
-  color: #55745a;
-  font-weight: 500;
-}
-
-.expense-item button {
-  background-color: #c9dfcc;
-  color: #4f7355;
-}
-
-.expense-item button:hover {
-  background-color: #b5d4b9;
-}
-
-.total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #dff2e1;
-  padding: 10px 15px;
-  border-radius: 10px;
-}
-
-.total h2 {
-  color: #4f7355;
+  border-color: #7fc88a;
 }
