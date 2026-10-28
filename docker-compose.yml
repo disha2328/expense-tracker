@@ -1,0 +1,53 @@
+services:
+  # Database Service: Safe local MongoDB development container
+  mongo:
+    image: mongo:6.0
+    container_name: expense-tracker-mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - expense-network
+
+  # Backend Service: Node.js / Express REST API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: expense-tracker-backend
+    restart: always
+    ports:
+      - "5001:5001"
+    environment:
+      - PORT=5001
+      - MONGO_URI=mongodb://mongo:27017/expense_tracker
+      - JWT_SECRET=expense_tracker_jwt_secret_key_2026
+      - NODE_ENV=development
+      - CLIENT_URL=http://localhost:3000
+    depends_on:
+      - mongo
+    networks:
+      - expense-network
+
+  # Frontend Service: React Application served with Nginx
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: expense-tracker-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - expense-network
+
+networks:
+  expense-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
